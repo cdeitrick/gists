@@ -8,8 +8,8 @@ def get_sample_files(folder:Path)->Tuple[Path,Path]:
 	return forward, reverse
 
 if __name__ == "__main__":
-	folder = Path("/home/cld100/projects/lipuma/sequences")
-	filename = folder / "lipuma_sample.tsv"
+	folder = Path("/home/cld100/projects/lipuma/samples/")
+	filename = folder / "lipuma_samples.tsv"
 	with filename.open('w') as file1:
 		for sample_folder in folder.iterdir():
 			f, r = get_sample_files(sample_folder)
