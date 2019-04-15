@@ -12,8 +12,11 @@ if __name__ == "__main__":
 	filename = folder / "lipuma_samples.tsv"
 	with filename.open('w') as file1:
 		for sample_folder in folder.iterdir():
-			f, r = get_sample_files(sample_folder)
-			sample_name = sample_folder.name.split('_')[0]
-			file1.write(f"{sample_name}\t{f}\t{r}\n")
-
+			if not sample_folder.is_dir(): continue
+			try:
+				f, r = get_sample_files(sample_folder)
+				sample_name = sample_folder.name.split('_')[0]
+				file1.write(f"{sample_name}\t{f}\t{r}\n")
+			except:
+				pass
 
